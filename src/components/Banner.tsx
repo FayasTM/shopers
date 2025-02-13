@@ -6,12 +6,13 @@ import { urlFor } from '@/sanity/lib/image';
 import Link from 'next/link';
 import Button from './Button';
 import { BannerData } from '../../type';
+import FormatedPrice from './FormatedPrice';
 
 
 
 const Banner = async () => {
     const banners = await getBannersData()
-    console.log(banners);
+    // console.log(banners);
 
     const singleBanner = banners[0];
 
@@ -44,11 +45,16 @@ const Banner = async () => {
                 <div key={item?._id} className='h-full md:h-1/2 bg-bglight rounded-lg overflow-hiden flex 
                 justify-center p-5 group'
                 >
-                    <div className='w-1/2 flex flex-col '>
+                    <div className='w-1/2 flex flex-col  '>
                      <div>
-                        <p>{item?.title}</p>
-                        <p> {item?.subtitle}</p>
+                        <p className='text-2xl font-semibold'>{item?.title}</p>
+                        <p className='text-3xl font-bold'> {item?.subtitle}</p>
                      </div>
+                     <p className='mt-3 font-medium text-black/60'>From
+                        <FormatedPrice className="text-lightOrange font-bold"amount={ item?.price }/>
+                    </p>
+                    <Link href={"/shop"} className='mt-5 font-bold underline underline-offset-2 
+                    decoration-lightOrange decoration-[1px] hover:text-darkOrange hoverEffect'>Shop Now</Link>
                     </div>
                     <Image  src={urlFor(item?.image).url()} alt={item.title} 
                     width={500}

@@ -1,5 +1,6 @@
 import { title } from "process";
 
+
 export const navBarList = [
     {
         title: "Home",

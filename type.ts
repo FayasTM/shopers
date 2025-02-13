@@ -31,7 +31,7 @@ type ImageAsset ={
 
 };
 
-type Slug{
+type Slug = {
     current: string;
     _type: "slug";
 
