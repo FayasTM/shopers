@@ -1,8 +1,9 @@
 import React from 'react'
+import Load from '@/components/Load'
 
 const loadingPage = () => {
   return (
-    <div>Page</div>
+    <Load  title="Loading" />
   )
 }
 
