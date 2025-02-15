@@ -40,7 +40,7 @@ const Banner = async () => {
             className='object-contain h-72 md:h-full max-h-[500px] self-end group hover:scale-105 hoverEffect' />
         </div>
         {/* Right half - two images */}
-        <div className='flex flex-col space-y-5 md:space-y-10 h-auto md:max-h-[600px]'>
+        <div className='flex flex-col space-y-5 md:space-y-10 h-auto md:max-h-[600px] bg-bgLight'>
             {banners.slice(1,3).map((item: BannerData)=>(
                 <div key={item?._id} className='h-full md:h-1/2 bg-bglight rounded-lg overflow-hiden flex 
                 justify-center p-5 group'
