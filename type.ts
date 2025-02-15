@@ -59,3 +59,17 @@ export interface ProductData{
     position:string;
     rowprice: number;
 }
+
+interface userInfo{
+    id:string;
+    name:string;
+    email:string;
+}
+
+export interface StoreState{
+    shoppers: {
+        cart: ProductData[];
+        wishList: ProductData[];
+        userInfo: userInfo | null;
+    }
+}
