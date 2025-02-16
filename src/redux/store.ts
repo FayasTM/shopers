@@ -9,8 +9,7 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-  WebStorage } from 'redux-persist'
-
+  WebStorage } from 'redux-persist';
 import createWebStorage from "redux-persist/es/storage/createWebStorage";
 
 export function createPersistedStore():WebStorage {
@@ -33,6 +32,8 @@ export function createPersistedStore():WebStorage {
  return createPersistedStore("local");
 }
 
+
+
 const storage = 
   typeof window !== "undefined" 
   ? createWebStorage("local") 
@@ -50,13 +51,14 @@ const persistedReducer = persistReducer(persistConfig, shoppersReducer);
 
 export const store = configureStore({
   reducer: {
-    shoppers: persistedReducer, 
+    shoppers: persistedReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-    serializableCheck:{
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
 export const persistor = persistStore(store);

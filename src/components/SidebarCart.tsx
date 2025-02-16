@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import { StoreState } from '../../type'
 
 const SidebarCart = () => {
-  const {cart} = useSelector((state: StoreState) =>state?.shoppers)
+  const {cart} = useSelector((state: StoreState) =>state?.shoppers);
   console.log(cart);
 
   return (
