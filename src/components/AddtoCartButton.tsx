@@ -10,9 +10,9 @@ interface  Props{
 }
 
 const AddtoCartButton = ({item, className} : Props) => {
-  const dispacth = useDispatch();
+  const dispatch = useDispatch(); 
   const handleAddToCart = ( ) =>{
-    dispacth(addToCart(item));
+    dispatch(addToCart(item));
     toast.success(`${item?.title.substring(0,12)} added successfully`);
   }
   return (
