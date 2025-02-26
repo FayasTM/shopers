@@ -23,6 +23,22 @@ const CartContainer = ({session}: any) => {
       }
     }
     console.log(cart);
+
+    const handleCheckout = async ( ) => {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items: cart
+        }),
+      });
+
+      const result = await response.json();
+      console.log(result);
+
+    }
   return (
     <div>
   {cart?.length > 0 ? (
@@ -68,7 +84,9 @@ const CartContainer = ({session}: any) => {
           </div>
         </div>
         </div>
-        <Button diasbled ={!session?.user} 
+        <Button 
+        onClick={handleCheckout}
+        diasbled ={!session?.user} 
           className='py-3 px-8 rounded-md disabled:bg-gray-300'>
            Proceed to Checkout
         </Button>

@@ -45,7 +45,7 @@ const ProductCard = ({item }: {item: ProductData}) => {
           <FormatedPrice amount={item?.price} className='text-darkOrange font-bold'/>
         </div>
       </div>
-      <AddtoCartButton/>
+      <AddtoCartButton item={item}/>
     </div>
   )
 }
